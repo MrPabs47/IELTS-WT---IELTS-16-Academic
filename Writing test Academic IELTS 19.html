@@ -448,6 +448,7 @@
     .task1-box {
       border-color: #4b5563;
       background: #fcfcfc;
+      margin: 10px 0 10px;
     }
 
     .task1-box p {
@@ -486,6 +487,29 @@
       border-radius: 8px;
       cursor: zoom-in;
       background: #fff;
+    }
+
+    .wt1-image-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .wt1-image-wrap .task-image-frame {
+      width: 100%;
+      height: min(52vh, 560px);
+    }
+
+    .wt1-image-wrap .task-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .task-image-caption {
@@ -854,6 +878,16 @@
       margin-top: 2px;
     }
 
+    .app.fullscreen-active .wt1-image-wrap {
+      margin: 4px 0 2px;
+    }
+
+    .app.fullscreen-active .wt1-image-wrap .task-image-frame {
+      width: 100%;
+      height: calc(100vh - 260px);
+      max-height: calc(100vh - 260px);
+    }
+
     @media (max-width: 960px) {
       .test-main {
         flex-direction: column;
@@ -1158,7 +1192,7 @@
         "</div>" +
         "<p class='task-footer-text'>Write at least 150 words.</p>",
       imageDataUrl: "Sugar cane WT1 IELTS 16.png", // WT1 diagram image
-      imageAlt: "Sugar cane manufacturing process diagram showing how sugar is produced", // WT1 image alt text
+      imageAlt: "IELTS Writing Task 1 process diagram showing how sugar is made from sugar cane", // WT1 image alt text
       imageCaption: "Sugar production process from sugar cane"
     };
 
@@ -1425,6 +1459,7 @@
 
       const wrap = document.createElement("figure");
       wrap.className = "task-image-wrap";
+      if (task.id === 1) wrap.classList.add("wt1-image-wrap");
 
       const img = document.createElement("img");
       img.className = "task-image";
